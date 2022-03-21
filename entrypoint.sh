@@ -30,15 +30,15 @@ echo -e "\tVERBOSE: ${verbose}"
 
 current_branch=$(git rev-parse --abbrev-ref HEAD)
 
-pre_release="true"
-IFS=',' read -ra branch <<< "$release_branches"
-for b in "${branch[@]}"; do
-    echo "Is $b a match for ${current_branch}"
-    if [[ "${current_branch}" =~ $b ]]
-    then
-        pre_release="false"
-    fi
-done
+pre_release="false"	#NOT USING PRE-RELEASES
+#IFS=',' read -ra branch <<< "$release_branches"
+#for b in "${branch[@]}"; do
+#    echo "Is $b a match for ${current_branch}"
+#    if [[ "${current_branch}" =~ $b ]]
+#    then
+#        pre_release="false"
+#    fi
+#done
 echo "pre_release = $pre_release"
 
 # fetch tags
